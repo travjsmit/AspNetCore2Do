@@ -136,3 +136,4 @@ C:\Users\T.S. SMU\OneDrive\Documents\Code\AI Assisted Analysis and Dev\AspNetCor
 C:\Users\T.S. SMU\OneDrive\Documents\Code\AI Assisted Analysis and Dev\AspNetCore2Do\AspNetCore2Do\obj\Debug\net8.0\AspNetCore2Do.pdb
 C:\Users\T.S. SMU\OneDrive\Documents\Code\AI Assisted Analysis and Dev\AspNetCore2Do\AspNetCore2Do\obj\Debug\net8.0\AspNetCore2Do.genruntimeconfig.cache
 C:\Users\T.S. SMU\OneDrive\Documents\Code\AI Assisted Analysis and Dev\AspNetCore2Do\AspNetCore2Do\obj\Debug\net8.0\ref\AspNetCore2Do.dll
+C:\Users\T.S. SMU\OneDrive\Documents\Code\AI Assisted Analysis and Dev\AspNetCore2Do\AspNetCore2Do\obj\Debug\net8.0\AspNetCore2Do.sourcelink.json
