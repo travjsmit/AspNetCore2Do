@@ -13,5 +13,7 @@ namespace AspNetCore2Do.Models
         public string? Title { get; set; } // Added "?" to eliminate warnings related to non-nullible properties in the classes.
         
         public DateTimeOffset? DueAt { get; set; }
+
+        public string UserId { get; set; }
     }
 }
