@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AspNetCore2Do")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58ad8ed3577e627eec51e75b59155eebb6667d03")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a24701f505539e5d876fecc770f2efa93827dca0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AspNetCore2Do")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AspNetCore2Do")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
