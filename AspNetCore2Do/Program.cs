@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AspNetCore2Do.Data;
 using AspNetCore2Do.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<ITodoItemService, TodoItemService>();
 
 var app = builder.Build();
+
+InitializeDatabase(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -45,3 +48,29 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+static void InitializeDatabase(WebApplication app)
+{
+	// use app instead of host p.92
+	using (var scope = app.Services.CreateScope())
+	{
+		var services = scope.ServiceProvider;
+
+		// Use try and catch sparingly
+		try
+		{
+			SeedData.InitializeAsync(services).Wait();
+		}
+		catch (Exception ex)
+		{
+			var logger = services.GetRequiredService<ILogger<Program>>();
+			logger.LogError(ex, "Error occurred while seeding database.");
+		}
+		finally
+		{
+			// Always run
+		}
+	}
+}
+
+public partial class Program { }
