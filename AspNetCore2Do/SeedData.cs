@@ -4,6 +4,7 @@ using AspNetCore2Do.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using AspNetCore2Do;
 
 namespace AspNetCore2Do
 {

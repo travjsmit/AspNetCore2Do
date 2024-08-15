@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AspNetCore2Do.Data;
 using AspNetCore2Do.Services;
-using Microsoft.Extensions.DependencyInjection;
+using AspNetCore2Do;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddRazorPages();
 builder.Services.AddScoped<ITodoItemService, TodoItemService>();
 
 var app = builder.Build();
@@ -49,28 +49,26 @@ app.MapRazorPages();
 
 app.Run();
 
+// We no longer use IWebHost host; we use WebApplication app
 static void InitializeDatabase(WebApplication app)
 {
-	// use app instead of host p.92
-	using (var scope = app.Services.CreateScope())
-	{
-		var services = scope.ServiceProvider;
+     using (var scope = app.Services.CreateScope()) // Use app instead of host
+    {
+        var services = scope.ServiceProvider;
 
-		// Use try and catch sparingly
-		try
-		{
-			SeedData.InitializeAsync(services).Wait();
-		}
-		catch (Exception ex)
-		{
-			var logger = services.GetRequiredService<ILogger<Program>>();
-			logger.LogError(ex, "Error occurred while seeding database.");
-		}
-		finally
-		{
-			// Always run
-		}
-	}
+        // Use try and catch sparingly
+        try
+        {
+            SeedData.InitializeAsync(services).Wait();
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "Error occurred while seeding database.");
+        }
+        finally
+        {
+            // Always run
+        }
+    }
 }
-
-public partial class Program { }

@@ -15,7 +15,7 @@ namespace AspNetCore2Do.Services
 
         public TodoItemService(ApplicationDbContext context)
         {
-        _context = context;
+            _context = context;
         }
 
         public async Task<TodoItem[]> GetIncompleteItemsAsync(IdentityUser user)
@@ -29,8 +29,12 @@ namespace AspNetCore2Do.Services
         {
             newItem.Id = Guid.NewGuid();
             newItem.IsDone = false;
-            newItem.DueAt = DateTimeOffset.Now.AddDays(3);
             newItem.UserId = user.Id;
+
+            if (newItem.DueAt == default)
+            {
+                newItem.DueAt = DateTimeOffset.Now.AddDays(3);
+            }
 
             _context.Items.Add(newItem);
             

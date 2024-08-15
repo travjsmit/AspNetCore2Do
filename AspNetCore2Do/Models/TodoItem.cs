@@ -10,7 +10,7 @@ namespace AspNetCore2Do.Models
         public bool IsDone { get; set; }
 
         [Required]
-        public string? Title { get; set; } // Added "?" to eliminate warnings related to non-nullible properties in the classes.
+        public string? Title { get; set; }
         
         public DateTimeOffset? DueAt { get; set; }
 

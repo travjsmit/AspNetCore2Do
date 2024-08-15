@@ -7,6 +7,8 @@ namespace AspNetCore2Do.Models
             Items = Array.Empty<TodoItem>();
         }
 
-        public TodoItem[]? Items { get; set; } // Added nullible "?" to fix Items error
+        public TodoItem[] Items { get; set; }
+
+        public TodoItem? NewItem { get; set; }
     }
 }
